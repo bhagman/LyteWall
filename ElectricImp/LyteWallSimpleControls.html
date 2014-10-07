@@ -34,9 +34,12 @@ html, body, #wrapper {
   border: 5px solid lightgrey;
 }
 
-.control-wrapper > div { height:100%; width:49%;}
-.control-wrapper > div:first-child{ float:left;}
+.control-wrapper > div { height:100%;display:inline-block;float:left;}
 .control-wrapper > div:last-child{ float:right;}
+
+.d-pad {width:33%;}
+.start-select {width:30%;}
+.button-pad {width:36%;}
 
 .d-pad > div { height:33%; width:100%;}
 
@@ -64,6 +67,7 @@ html, body, #wrapper {
   height: 100%;
   width: 33%;
   text-align:center;
+  cursor:pointer;
 }
 
 .butt.up{ background-image: url('/tetriscontrols/triangleup1.png'); }
@@ -78,7 +82,29 @@ html, body, #wrapper {
   background-size:75% 50%;
 }
 
-.button-pad .butt{ background-color:red; }
+.start-select .butt{
+  background-color: black;
+  height:10%;
+  margin: 0 15px 0 30px;
+  color: #FFF;
+  text-align:center;
+  border-radius:20px;
+}
+
+.start-select::before{
+  content: "";
+  display:block;
+  width:20%;
+  height:80%;
+}
+.start-select .butt::before{
+  content: "";
+  display:block;
+  width:25%;
+  height:20%;
+}
+
+.button-pad .butt{ background-color:red; width:37%;}
 .button-pad .butt::before{
   content: "";
   display:block;
@@ -129,9 +155,13 @@ html, body, #wrapper {
             <div class="butt down" onclick="sendToImpAgent('Down')">&nbsp;</div>
           </div>
         </div>
+       <div class="start-select">
+          <div class="butt" onclick="sendToImpAgent('Select')"><div class="label">Select</div></div>
+          <div class="butt" onclick="sendToImpAgent('Start')"><div class="label">Start</div></div>
+        </div>
         <div class="button-pad">
-          <div class="butt" onclick="sendToImpAgent('Start')"><div class="label">B</div></div>
-          <div class="butt" onclick="sendToImpAgent('Start')"><div class="label">A</div></div>
+          <div class="butt" onclick="sendToImpAgent('B')"><div class="label">B</div></div>
+          <div class="butt" onclick="sendToImpAgent('A')"><div class="label">A</div></div>
         </div>
       </div>
     </div>
